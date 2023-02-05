@@ -34,30 +34,40 @@ public class RuleTest {
         fas.put(60,"Fa6");
         Lipid lipid= new Lipid();
         SpectrumUnit spectrumUnit= new SpectrumUnit();
-        Spectrum spectrum= new Spectrum(new Peak(50,300,0));
-        spectrum.addPeak(new Peak(30,100,0));
-        spectrum.addPeak(new Peak(2,20,0));
-        spectrum.addPeak(new Peak(123,300,0));
-        System.out.println(spectrum.getPeak(0).getIntensity()+ " "+ spectrum.getPeak(1).getIntensity());
-        RuleUnitInstance<SpectrumUnit> instance= RuleUnitProvider.get().createRuleUnitInstance(spectrumUnit);
-        try{
-            spectrumUnit.getSpectrum().add(spectrum);
-
-        }finally {
-            instance.close();
-        }
+        LipidUnit lipidUnit= new LipidUnit();
+        Spectrum spectrum= new Spectrum(new Peak(50,3,0));
+        spectrum.addPeak(new Peak(30,100,spectrum.getContador()));
+        spectrum.addPeak(new Peak(2,20,spectrum.getContador()));
+        spectrum.addPeak(new Peak(60,200,spectrum.getContador()));
+        RuleUnitInstance<LipidUnit> instance= RuleUnitProvider.get().createRuleUnitInstance(lipidUnit);
 
         for(int i=0; spectrum.getPeak(i)!=null;i++){
             if(heads.containsKey(spectrum.getPeak(i).getMz())){
                 lipid.setHead(heads.get(spectrum.getPeak(i).getMz()));
             }
             if(fas.containsKey(spectrum.getPeak(i).getMz())){
-                lipid.addFa(fas.get(spectrum.getPeak(i).getMz()));
+                if(lipid.getFa1()==null){
+                    lipid.setFa1(fas.get(spectrum.getPeak(i).getMz()),spectrum.getPeak(i).getIntensity());
+                }else{
+                    if(lipid.getFa2()==null){
+                        lipid.setFa2(fas.get(spectrum.getPeak(i).getMz()),spectrum.getPeak(i).getIntensity());
+                    }else{
+                        if(lipid.getFa3()==null){
+                            lipid.setFa3(fas.get(spectrum.getPeak(i).getMz()),spectrum.getPeak(i).getIntensity());
+                        }
+                    }
+                }
             }
         }
-
         System.out.println(lipid);
-        System.out.println(spectrum.getPeak(0).getPosition());
+        try{
+            lipidUnit.getLipid().add(lipid);
+           instance.fire();
+        }finally {
+            instance.close();
+        }
+        System.out.println(lipid);
+
         /*MeasurementUnit measurementUnit = new MeasurementUnit();
 
         RuleUnitInstance<MeasurementUnit> instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit);

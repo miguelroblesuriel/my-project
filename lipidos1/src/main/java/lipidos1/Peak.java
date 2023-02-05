@@ -33,4 +33,16 @@ public class Peak {
     public void setPosition(int position) {
         this.position = position;
     }
+
+    @Override public String toString(){
+        return "mz:"+ this.mz+ " intensity:"+ this.intensity+ " position:"+ this.position;
+    }
+    @Override public boolean equals(Object o){
+        Peak peak= (Peak) o;
+        if(peak.position==this.position && peak.mz==this.mz && peak.intensity==this.intensity){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

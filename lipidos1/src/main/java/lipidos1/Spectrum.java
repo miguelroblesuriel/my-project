@@ -6,34 +6,54 @@ import java.util.List;
 
 public class Spectrum {
     private List<Peak> peaks= new LinkedList<Peak>();
-    private String type;
+    private int contador;
+
     public Spectrum(Peak peak) {
-        peaks.add(peak);
+        this.peaks.add(peak);
+        this.contador=1;
     }
     public void addPeak(Peak peak){
-        peaks.add(peak);
+        this.peaks.add(peak);
+        this.contador=contador+1;
     }
     public Peak getPeak(int posicion){
-        Iterator<Peak> it= peaks.iterator();
-        for(int i=0; i<posicion;i++){
-            if(it.hasNext()){
-                it.next();
-            }else{
-                return null;
+        Peak peak;
+        Iterator<Peak> it= this.peaks.iterator();
+        while(it.hasNext()){
+            if((peak=it.next()).getPosition()==posicion){
+                return peak;
             }
         }
-        if(it.hasNext()){
-            return it.next();
-        }else{
-            return null;
+        return null;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    public int getContador() {
+        return this.contador;
+    }
+
+    public void swapPeaks(Peak peak1, Peak peak2){
+        Iterator<Peak> it= this.peaks.iterator();
+        while(it.hasNext()){
+            Peak peak3 = it.next();
+            if(peak3.equals(peak1)){
+                peak3.setPosition(peak3.getPosition()+1);
+            }
+            if(peak3.equals(peak2)){
+                peak3.setPosition(peak3.getPosition()-1);
+            }
         }
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getType() {
-        return type;
+    @Override public String toString(){
+        Iterator<Peak> it= this.peaks.iterator();
+        String cadena="";
+        for(int i=0; it.hasNext();i++){
+            cadena=cadena.concat(it.next().toString()+"   ");
+        }
+        return cadena;
     }
 }
