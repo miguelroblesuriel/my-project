@@ -21,17 +21,17 @@ public class RuleTest {
     @Test
     public void test() {
         LOG.info("Creating RuleUnit");
-        Map<Integer,String> heads= new HashMap<Integer,String>();
-        heads.put(1,"Head1");
-        heads.put(2,"Head2");
-        heads.put(3,"Head3");
-        Map<Integer,String> fas= new HashMap<Integer,String>();
-        fas.put(10,"Fa1");
-        fas.put(20,"Fa2");
-        fas.put(30,"Fa3");
-        fas.put(40,"Fa4");
-        fas.put(50,"Fa5");
-        fas.put(60,"Fa6");
+        Map<String,Integer> heads= new HashMap<String,Integer>();
+        heads.put("Head1",1);
+        heads.put("Head2",2);
+        heads.put("Head3",3);
+        Map<String,Integer> fas= new HashMap<String,Integer>();
+        fas.put("Fa1",10);
+        fas.put("Fa2",20);
+        fas.put("Fa3",30);
+        fas.put("Fa4",40);
+        fas.put("Fa5",50);
+        fas.put("Fa6",60);
         Lipid lipid= new Lipid();
         SpectrumUnit spectrumUnit= new SpectrumUnit();
         LipidUnit lipidUnit= new LipidUnit();
@@ -40,20 +40,27 @@ public class RuleTest {
         spectrum.addPeak(new Peak(2,20,spectrum.getContador()));
         spectrum.addPeak(new Peak(60,200,spectrum.getContador()));
         RuleUnitInstance<LipidUnit> instance= RuleUnitProvider.get().createRuleUnitInstance(lipidUnit);
-
         for(int i=0; spectrum.getPeak(i)!=null;i++){
-            if(heads.containsKey(spectrum.getPeak(i).getMz())){
-                lipid.setHead(heads.get(spectrum.getPeak(i).getMz()));
+            Iterator<String> ith= heads.keySet().iterator();
+            Iterator<String> itf= fas.keySet().iterator();
+            while(ith.hasNext()){
+                String head= ith.next();
+                if(heads.get(head)==spectrum.getPeak(i).getMz()){
+                    lipid.setHead(head);
+                }
             }
-            if(fas.containsKey(spectrum.getPeak(i).getMz())){
-                if(lipid.getFa1()==null){
-                    lipid.setFa1(fas.get(spectrum.getPeak(i).getMz()),spectrum.getPeak(i).getIntensity());
-                }else{
-                    if(lipid.getFa2()==null){
-                        lipid.setFa2(fas.get(spectrum.getPeak(i).getMz()),spectrum.getPeak(i).getIntensity());
+            while(itf.hasNext()){
+                String fa= itf.next();
+                if(fas.get(fa)==spectrum.getPeak(i).getMz()){
+                    if(lipid.getFa1()==null){
+                        lipid.setFa1(fa,spectrum.getPeak(i).getIntensity());
                     }else{
-                        if(lipid.getFa3()==null){
-                            lipid.setFa3(fas.get(spectrum.getPeak(i).getMz()),spectrum.getPeak(i).getIntensity());
+                        if(lipid.getFa2()==null){
+                            lipid.setFa2(fa,spectrum.getPeak(i).getIntensity());
+                        }else{
+                            if(lipid.getFa3()==null){
+                                lipid.setFa3(fa,spectrum.getPeak(i).getIntensity());
+                            }
                         }
                     }
                 }
