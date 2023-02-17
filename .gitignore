@@ -1,3 +1,7 @@
+# .idea configuration
+*.idea
+.idea
+
 # Compiled class file
 *.class
 
