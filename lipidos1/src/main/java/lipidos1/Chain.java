@@ -1,18 +1,18 @@
 package lipidos1;
 
-public class Fa {
+public class Chain {
     private String name;
-    private int intensity;
-    public Fa(String name, int intensity){
+    private double intensity;
+    public Chain(String name, double intensity){
         this.name=name;
         this.intensity=intensity;
     }
 
-    public void setIntensity(int intensity) {
+    public void setIntensity(double intensity) {
         this.intensity = intensity;
     }
 
-    public int getIntensity() {
+    public double getIntensity() {
         return intensity;
     }
 

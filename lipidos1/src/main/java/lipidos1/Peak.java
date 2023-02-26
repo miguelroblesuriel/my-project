@@ -1,16 +1,16 @@
 package lipidos1;
 
 public class Peak {
-    private int mz;
-    private int intensity;
+    private double mz;
+    private double intensity;
     private int position;
-    public Peak(int mz, int intensity, int position){
+    public Peak(double mz, double intensity, int position){
         this.mz=mz;
         this.intensity=intensity;
         this.position=position;
     }
 
-    public int getIntensity() {
+    public double getIntensity() {
         return intensity;
     }
 
@@ -18,11 +18,11 @@ public class Peak {
         return position;
     }
 
-    public int getMz() {
+    public double getMz() {
         return mz;
     }
 
-    public void setIntensity(int intensity) {
+    public void setIntensity(double intensity) {
         this.intensity = intensity;
     }
 
