@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be3dd1d9-5f93-4f71-975a-3f77ab6d1b75" name="Changes" comment="Programa funcional con reglas">
+    <list default="true" id="be3dd1d9-5f93-4f71-975a-3f77ab6d1b75" name="Changes" comment="Clasificación diferentes lipidos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lipidos1/Fa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lipidos1/Chain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lipidos1/Lipid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lipidos1/Lipid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lipidos1/Peak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lipidos1/Peak.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/lipidos1/rules.drl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lipidos1/rules.drl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/lipidos1/RuleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lipidos1/RuleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lipidos1/rules.drl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lipidos1/rules.drl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +51,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.RuleTest.test">
+  <component name="RunManager" selected="JUnit.RuleTest">
     <configuration name="RuleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lipidos1" />
       <extension name="coverage">
@@ -89,8 +86,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RuleTest.test" />
         <item itemvalue="JUnit.RuleTest" />
+        <item itemvalue="JUnit.RuleTest.test" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +115,12 @@
       <workItem from="1676814245017" duration="711000" />
       <workItem from="1676999246574" duration="1737000" />
       <workItem from="1677339347332" duration="5586000" />
-      <workItem from="1677404231320" duration="2557000" />
+      <workItem from="1677404231320" duration="2687000" />
+      <workItem from="1677941429271" duration="1626000" />
+      <workItem from="1678550641586" duration="3098000" />
+      <workItem from="1679154547521" duration="752000" />
+      <workItem from="1679223669140" duration="5886000" />
+      <workItem from="1679246542354" duration="1605000" />
     </task>
     <task id="LOCAL-00001" summary="Programa funcional">
       <created>1675596164542</created>
@@ -134,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676125529213</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Clasificación diferentes lipidos">
+      <created>1677436246921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677436246921</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +163,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Programa funcional" />
     <MESSAGE value="Programa funcional con reglas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Programa funcional con reglas" />
+    <MESSAGE value="Clasificación diferentes lipidos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clasificación diferentes lipidos" />
   </component>
 </project>

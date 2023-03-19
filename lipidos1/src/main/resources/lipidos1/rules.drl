@@ -18,7 +18,7 @@ unit LipidUnit;
 rule "Order fatty acids(1,3)"
 when
    $l: /lipid[$f1 : chain1, $f3: chain3];
-   /lipid[$f1.getIntensity()<$f3.getIntensity(), $l.getType==null]
+   /lipid[ $f1!=null,$f3!=null,$f1.getIntensity()<$f3.getIntensity(), $l.getType==null]
 then
     $l.setChain1($f3);
     $l.setChain3($f1);
@@ -27,7 +27,7 @@ end
 rule "Order fatty acids(1,2)"
 when
    $l: /lipid[$f1 : chain1, $f2: chain2];
-   /lipid[$f1.getIntensity()<$f2.getIntensity(), $l.getType==null]
+   /lipid[ $f1!=null,$f2!=null,$f1.getIntensity()<$f2.getIntensity(), $l.getType==null]
 then
     $l.setChain1($f2);
     $l.setChain2($f1);
@@ -35,7 +35,7 @@ end
 rule "Order fatty acids(2,3)"
 when
    $l: /lipid[$f2 : chain2, $f3: chain3];
-   /lipid[$f2.getIntensity()<$f3.getIntensity(), $l.getType==null]
+   /lipid[$f3!=null,$f2!=null,$f2.getIntensity()<$f3.getIntensity(), $l.getType==null]
 then
     $l.setChain2($f3);
     $l.setChain3($f2);
@@ -43,7 +43,7 @@ end
 rule "oPC,pPC,oPE,pPE"
 when
     $l: /lipid[$f1 : chain1, $f2: chain2];
-    /lipid[($f1.getIntensity()*3)<$f2.getIntensity(), $l.getType=="oPC" || $l.getType=="pPC" || $l.getType=="oPE" || $l.getType=="pPE"]
+    /lipid[$f1!=null,$f2!=null,($f1.getIntensity()*3)<$f2.getIntensity(), $l.getType=="oPC" || $l.getType=="pPC" || $l.getType=="oPE" || $l.getType=="pPE"]
 then
     $l.setViability(true);
 end

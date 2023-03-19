@@ -7,15 +7,32 @@ public class Lipid {
     private Chain chain2;
     private Chain chain3;
     private boolean viability=false;
+    private boolean headstatus=false;
     private String type;
 
     public Lipid(String head){
         this.head=head;
     }
     public Lipid(){}
+    public Lipid(Lipid lipid){
+        this.viability= lipid.viability;
+        this.headstatus= lipid.headstatus;
+        this.head=lipid.head;
+        this.chain1=lipid.chain1;
+        this.chain2=lipid.chain2;
+        this.chain3=lipid.chain3;
+        this.type=lipid.type;
+    }
 
     public void setChain1(String chain1, double intensity) {
         this.chain1 = new Chain(chain1,intensity);
+    }
+
+    public void setHeadstatus(boolean headstatus) {
+        this.headstatus = headstatus;
+    }
+    public boolean getHeadstatus(){
+        return this.headstatus;
     }
 
     public void setChain2(String chain2, double intensity) {
@@ -50,9 +67,11 @@ public class Lipid {
         this.chain1 = fa1;
     }
 
-
+    public boolean getViability(){
+        return this.viability;
+    }
     public void setHead(String head) {
-        this.head = head;
+        this.head=head;
     }
 
     public String getHead() {
@@ -60,7 +79,10 @@ public class Lipid {
     }
 
     public void setType(String type) {
-        this.type = type;
+        if(!this.headstatus){
+            this.type = type;
+            this.headstatus=true;
+        }
     }
 
     public String getType() {
