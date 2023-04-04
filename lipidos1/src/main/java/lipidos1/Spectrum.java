@@ -5,11 +5,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Spectrum {
-    private List<Peak> peaks= new LinkedList<Peak>();
+
+    // TODO si los queremos ordenados en base a mz, vamos a crear un arbol. compareTo a traves del pico (mz)
+    private List<Peak> peaks;
     private int contador;
 
     public Spectrum(Peak peak) {
+        peaks = new LinkedList<Peak>();
         this.peaks.add(peak);
+        this.contador=1;
+    }
+
+    public Spectrum(List<Peak> peaks) {
+        this.peaks = peaks;
         this.contador=1;
     }
     public void addPeak(Peak peak){

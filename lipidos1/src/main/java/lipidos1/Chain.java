@@ -3,6 +3,8 @@ package lipidos1;
 public class Chain {
     private String name;
     private double intensity;
+
+    private double mz;
     public Chain(String name, double intensity){
         this.name=name;
         this.intensity=intensity;

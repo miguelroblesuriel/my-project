@@ -47,3 +47,5 @@ when
 then
     $l.setViability(true);
 end
+
+// TODO Miguel -> diferenciar reglas de identificacion del lipido (reglas de mzs, fragmentos, etc..) con reglas de identificacion de posiciones (intensidad)

@@ -1,21 +1,30 @@
 package lipidos1;
 import java.util.*;
 public class Lipid {
+    // TODO ADD CABEZAS
     private String head;
 
+    // TODO change the chains from 3 chains to a list of chains.
     private Chain chain1;
     private Chain chain2;
     private Chain chain3;
-    private boolean viability=false;
-    private boolean headstatus=false;
+    private boolean viability;
+    private boolean headstatus;
     private String type;
 
     public Lipid(String head){
         this.head=head;
+        viability = false;
+        headstatus = false;
     }
-    public Lipid(){}
+    public Lipid(){
+        viability = false;
+        headstatus = false;
+    }
     public Lipid(Lipid lipid){
+        viability = false;
         this.viability= lipid.viability;
+        headstatus = false;
         this.headstatus= lipid.headstatus;
         this.head=lipid.head;
         this.chain1=lipid.chain1;

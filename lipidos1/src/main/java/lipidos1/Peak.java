@@ -1,8 +1,12 @@
 package lipidos1;
 
+import java.util.Objects;
+
 public class Peak {
     private double mz;
     private double intensity;
+
+    // TODO MIGUEL eliminar posicion pico
     private int position;
     public Peak(double mz, double intensity, int position){
         this.mz=mz;
@@ -39,10 +43,17 @@ public class Peak {
     }
     @Override public boolean equals(Object o){
         Peak peak= (Peak) o;
-        if(peak.position==this.position && peak.mz==this.mz && peak.intensity==this.intensity){
+        if(peak.mz==this.mz){
             return true;
         }else{
             return false;
         }
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mz);
+    }
+
+
 }

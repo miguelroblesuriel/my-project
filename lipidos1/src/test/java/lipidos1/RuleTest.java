@@ -144,6 +144,12 @@ public class RuleTest {
 
     @Test
     public void test() {
+
+        // TODO Miguel
+
+        // crear un mapa cuya clave es el espectro, y cuyos valores es el conjunto de hipótesis (lípido)
+
+
         LOG.info("Creating RuleUnit");
         Map<String,Double> heads= new HashMap<String,Double>();
         heads.put("Head1",78.9585);
